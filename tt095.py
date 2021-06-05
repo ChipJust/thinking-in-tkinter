@@ -1,11 +1,11 @@
 """<tt095.py
 
-Sizing windows can be a frustrating experience when working with Tkinter.  
+Sizing windows can be a frustrating experience when working with tkinter.  
 Imagine this situation. You believe in iterative development, so first you 
 carefully lay out a frame with the height and width specification that you want.  
 You test it and you see that it works. Then you move on to the next step, and 
 add some buttons to the frame.  You test it again, but now to your surprise 
-Tkinter is acting as if there were no "height" and "width" specifications for 
+tkinter is acting as if there were no "height" and "width" specifications for 
 the frame, and the frame has snapped down to tightly encase the buttons.
 
 What's going on ???!!!
@@ -65,28 +65,28 @@ all.
 
 [revised: 2002-10-01]
 >"""
-from Tkinter import *
+from tkinter import *
 
 class App:
-	def __init__(self, root, use_geometry, show_buttons):
-		fm = Frame(root, width=300, height=200, bg="blue")
-		fm.pack(side=TOP, expand=NO, fill=NONE)
-		
-		if use_geometry:
-			root.geometry("600x400")  ### (1) Note geometry Window Manager method
+    def __init__(self, root, use_geometry, show_buttons):
+        fm = Frame(root, width=300, height=200, bg="blue")
+        fm.pack(side=TOP, expand=NO, fill=NONE)
+        
+        if use_geometry:
+            root.geometry("600x400")  ### (1) Note geometry Window Manager method
 
-		if show_buttons:			
-			Button(fm, text="Button 1", width=10).pack(side=LEFT)
-			Button(fm, text="Button 2", width=10).pack(side=LEFT)
-			Button(fm, text="Button 3", width=10).pack(side=LEFT)
-		
+        if show_buttons:            
+            Button(fm, text="Button 1", width=10).pack(side=LEFT)
+            Button(fm, text="Button 2", width=10).pack(side=LEFT)
+            Button(fm, text="Button 3", width=10).pack(side=LEFT)
+        
 
 case = 0
 for use_geometry in (0, 1):
-	for show_buttons in (0,1):
-		case = case + 1		
-		root = Tk()
-		root.wm_title("Case " + str(case))  ### (2) Note wm_title Window Manager method
-		display = App(root, use_geometry, show_buttons)
-		root.mainloop()
-				
+    for show_buttons in (0,1):
+        case = case + 1        
+        root = Tk()
+        root.wm_title("Case " + str(case))  ### (2) Note wm_title Window Manager method
+        display = App(root, use_geometry, show_buttons)
+        root.mainloop()
+                

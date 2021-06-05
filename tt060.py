@@ -22,11 +22,11 @@ occur. [In Java, event handlers are called "listeners".  I like this name,
 because it suggests exactly what they do -- "listen" for events, and respond to 
 them.] 
 
-In Tkinter, the way that you create this binding is through the bind() method 
-that is a feature of all Tkinter widgets.  You use the bind() method in a 
+In tkinter, the way that you create this binding is through the bind() method 
+that is a feature of all tkinter widgets.  You use the bind() method in a 
 statement of the form:
 
-	widget.bind(event_type_name, event_handler_name)
+    widget.bind(event_type_name, event_handler_name)
 
 
 This kind of binding is called "event binding".  
@@ -55,7 +55,7 @@ argument to all class methods in Python.  The second will be an event object.  T
 and event (that is, using the bind() method) always implicitly passes an event object as
 an argument.
 
-In Python/Tkinter, when an event occurs, it takes the form of an event object.  An 
+In Python/tkinter, when an event occurs, it takes the form of an event object.  An 
 event object is extremely useful, because it carries with it all sorts of useful information
 and methods.  You can examine the event object to find out what kind of event occurred, 
 the widget where it occurred, and other useful bits of information.
@@ -98,34 +98,34 @@ fix that in a later program.
 [revised: 2002-10-01]
 >"""
 
-from Tkinter import *
+from tkinter import *
 
 class MyApp:
-	def __init__(self, parent):
-		self.myParent = parent  ### (7) remember my parent, the root
-		self.myContainer1 = Frame(parent)
-		self.myContainer1.pack()
-		
-		self.button1 = Button(self.myContainer1)
-		self.button1.configure(text="OK", background= "green")
-		self.button1.pack(side=LEFT)	
-		self.button1.bind("<Button-1>", self.button1Click) ### (1)
-		
-		self.button2 = Button(self.myContainer1)
-		self.button2.configure(text="Cancel", background="red")   
-		self.button2.pack(side=RIGHT)
-		self.button2.bind("<Button-1>", self.button2Click) ### (2)
-		
-	def button1Click(self, event):    ### (3)
-		if self.button1["background"] == "green": ### (4)
-			self.button1["background"] = "yellow"
-		else:
-			self.button1["background"] = "green"
-	
-	def button2Click(self, event):  ### (5)
-		self.myParent.destroy()     ### (6)
+    def __init__(self, parent):
+        self.myParent = parent  ### (7) remember my parent, the root
+        self.myContainer1 = Frame(parent)
+        self.myContainer1.pack()
+        
+        self.button1 = Button(self.myContainer1)
+        self.button1.configure(text="OK", background= "green")
+        self.button1.pack(side=LEFT)    
+        self.button1.bind("<Button-1>", self.button1Click) ### (1)
+        
+        self.button2 = Button(self.myContainer1)
+        self.button2.configure(text="Cancel", background="red")   
+        self.button2.pack(side=RIGHT)
+        self.button2.bind("<Button-1>", self.button2Click) ### (2)
+        
+    def button1Click(self, event):    ### (3)
+        if self.button1["background"] == "green": ### (4)
+            self.button1["background"] = "yellow"
+        else:
+            self.button1["background"] = "green"
+    
+    def button2Click(self, event):  ### (5)
+        self.myParent.destroy()     ### (6)
 
-		
+        
 root = Tk()
 myapp = MyApp(root)
 root.mainloop()

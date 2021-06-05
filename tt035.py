@@ -2,7 +2,7 @@
 
 USING A CLASS STRUCTURE
 
-In this program, we introduce the concept of structuring a Tkinter application
+In this program, we introduce the concept of structuring a tkinter application
 as a set of classes. 
 
 In this program, we have added a class called MyApp and moved some of the code 
@@ -50,11 +50,11 @@ structure.  We will explore this issue in a later program in this series.
 
 WHEN TO INTRODUCE CLASS STRUCTURING
 
-We've introduced the notion of a class structure for Tkinter programs early, in 
+We've introduced the notion of a class structure for tkinter programs early, in 
 order to explain it and then move on to other matters.  But in actual 
 development, you may choose to proceed differently.  
 
-In many cases, a Tkinter program starts as a simple script.  All of the code is 
+In many cases, a tkinter program starts as a simple script.  All of the code is 
 inline, as in our previous program.  Then, as you understand new dimensions of 
 the application, the programs grows. After a while, you have a LOT of code.  You 
 may have started to use global variables... maybe a LOT of global variables.  
@@ -85,18 +85,18 @@ No functionality has been changed -- only how the code is structured.
 
 [revised: 2003-02-23]
 >"""
-from Tkinter import *
+from tkinter import *
 
 class MyApp:                         ### (1)
-	def __init__(self, myParent):      ### (1a)
-		self.myContainer1 = Frame(myParent)
-		self.myContainer1.pack()
-		
-		self.button1 = Button(self.myContainer1) 
-		self.button1["text"]= "Hello, World!"     
-		self.button1["background"] = "green"      
-		self.button1.pack()	                       
-		
+    def __init__(self, myParent):    ### (1a)
+        self.myContainer1 = Frame(myParent)
+        self.myContainer1.pack()
+        
+        self.button1 = Button(self.myContainer1) 
+        self.button1["text"]= "Hello, World!"     
+        self.button1["background"] = "green"      
+        self.button1.pack()                           
+        
 root = Tk()
 myapp = MyApp(root)  ### (2)
 root.mainloop()      ### (3)

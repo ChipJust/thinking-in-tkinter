@@ -1,24 +1,24 @@
 """<tt000.py
 
- Subject: "Thinking in Tkinter"
+ Subject: "Thinking in tkinter"
  Author : Stephen Ferg (steve@ferg.org)
 
 ABOUT " THINKING IN TKINTER "
 
-I've been trying to teach myself Tkinter out of various books, and I'm finding
+I've been trying to teach myself tkinter out of various books, and I'm finding
 it more difficult than I think it should be.
 
 The problem is that the authors of the books want to rush into telling me about
-all of the widgets in the Tkinter toolbox, but never really pause to explain
-basic concepts.  They don't explain how to "think in Tkinter".
+all of the widgets in the tkinter toolbox, but never really pause to explain
+basic concepts.  They don't explain how to "think in tkinter".
 
-Here are a few short programs that begin to explain how to think in Tkinter. In
+Here are a few short programs that begin to explain how to think in tkinter. In
 them, I don't attempt to catalog all of the types of widgets, attributes, and
-methods that are available in Tkinter.  and I certainly don't try to provide a
-comprehensive introduction to Tkinter.  I just try to get you started down the
-road of understanding some basic Tkinter concepts.
+methods that are available in tkinter.  and I certainly don't try to provide a
+comprehensive introduction to tkinter.  I just try to get you started down the
+road of understanding some basic tkinter concepts.
 
-Note that the discussion is devoted exclusively to the Tkinter pack (or
+Note that the discussion is devoted exclusively to the tkinter pack (or
 "packer") geometry manager.  There is no discussion of the grid or place
 geometry managers.
 
@@ -60,10 +60,10 @@ because they "handle" (that is, respond to) such events.
 3) Associating an event handler with a widget is called "binding".  Roughly, the
 process of binding involves associating three different things: 
 
-	(a) a type of event (e.g. a click of the left mouse button, 
-	    or a press of the ENTER key on the keyboard), 
-	(b) a widget (e.g. a button), and 
-	(c) an event-handler routine.  
+    (a) a type of event (e.g. a click of the left mouse button, 
+        or a press of the ENTER key on the keyboard), 
+    (b) a widget (e.g. a button), and 
+    (c) an event-handler routine.  
 
 For example, we might bind (a) a single-click of the left mouse button on (b) 
 the "CLOSE" button/widget on the screen to (c) the "closeProgram" routine, which 
@@ -93,7 +93,7 @@ PROGRAM BEHAVIOR
 
 This program eases you into user-interace programming by showing how these basic
 concepts are implemented in a very simple program.  This program doesn't use
-Tkinter or any form of GUI programming.  It just puts up a menu on the console,
+tkinter or any form of GUI programming.  It just puts up a menu on the console,
 and gets simple keyboard input.  Even so, as you can see, it does the four basic
 tasks of user-interface programming.
 
@@ -102,46 +102,46 @@ tasks of user-interface programming.
 
 #----- task 2:  define the event handler routines ---------------------
 def handle_A():
-	print "Wrong! Try again!"
+    print ("Wrong! Try again!")
 
 def handle_B():
-	print "Absolutely right!  Trillium is a kind of flower!"
-	 
+    print ("Absolutely right!  Trillium is a kind of flower!")
+     
 def handle_C():
-	print "Wrong! Try again!"
+    print ("Wrong! Try again!")
 
 # ------------ task 1: define the appearance of the screen ------------
-print "\n"*100   # clear the screen
-print "            VERY CHALLENGING GUESSING GAME"
-print "========================================================"
-print "Press the letter of your answer, then the ENTER key."
-print
-print "    A.  Animal"
-print "    B.  Vegetable"
-print "    C.  Mineral"
-print
-print "    X.  Exit from this program"
-print
-print "========================================================"
-print "What kind of thing is 'Trillium'?"
-print
+print ("\n"*100)   # clear the screen)
+print ("            VERY CHALLENGING GUESSING GAME")
+print ("========================================================")
+print ("Press the letter of your answer, then the ENTER key.")
+print ()
+print ("    A.  Animal")
+print ("    B.  Vegetable")
+print ("    C.  Mineral")
+print ()
+print ("    X.  Exit from this program")
+print ()
+print ("========================================================")
+print ("What kind of thing is 'Trillium'?")
+print ()
 
 # ---- task 4: the event loop.  We loop forever, observing events. ---
-while 1:
+while (1):
 
-	# We observe the next event
-	answer = raw_input().upper()
+    # We observe the next event
+    answer = input().upper()
 
-	# -------------------------------------------------------
-	# Task 3: Associate interesting keyboard events with their
-	# event handlers.  A simple form of binding.
-	# -------------------------------------------------------
-	if answer == "A": handle_A()
-	if answer == "B": handle_B()
-	if answer == "C": handle_C()
-	if answer == "X": 
-		# clear the screen and exit the event loop
-		print "\n"*100
-		break
+    # -------------------------------------------------------
+    # Task 3: Associate interesting keyboard events with their
+    # event handlers.  A simple form of binding.
+    # -------------------------------------------------------
+    if answer == "A": handle_A()
+    if answer == "B": handle_B()
+    if answer == "C": handle_C()
+    if answer == "X": 
+        # clear the screen and exit the event loop
+        print ("\n"*100)
+        break
 
-	# Note that any other events are uninteresting, and are ignored
+    # Note that any other events are uninteresting, and are ignored

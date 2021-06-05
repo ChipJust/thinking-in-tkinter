@@ -6,16 +6,16 @@ Of the four basic GUI tasks that we discussed in the last program,
 this program does only one -- it runs the event loop.
 
 (1)
-The first statement imports Tkinter, so that it is available for use. Note that 
-the form of the import ("from Tkinter import *") means that we will not have to 
-qualify anything that we get from Tkinter with a "Tkinter." prefix.
+The first statement imports tkinter, so that it is available for use. Note that 
+the form of the import ("from tkinter import *") means that we will not have to 
+qualify anything that we get from tkinter with a "tkinter." prefix.
 
 (2)
 The second statement creates a "toplevel" window. Technically, what the the 
-second statement is doing, is creating an instance of the class "Tkinter.Tk". 
+second statement is doing, is creating an instance of the class "tkinter.Tk". 
 
 This toplevel window is the highest-level GUI component in any 
-Tkinter application.  By convention, the toplevel window is usually
+tkinter application.  By convention, the toplevel window is usually
 named "root".  
 
 (3)
@@ -40,7 +40,7 @@ more to do, and ends.
 [revised: 2003-02-23]
 >""" 
 
-from Tkinter import * ### (1)
+from tkinter import * ### (1)
 
 root = Tk()           ### (2) 
 root.mainloop()       ### (3)
