@@ -1,5 +1,5 @@
 """
-A modified copy of easygui, to serve as a driver for the programs in 
+A modified copy of easygui, to serve as a driver for the programs in
 Thinking In tkinter.
 
 """
@@ -21,19 +21,20 @@ Documentation is in an accompanying file, easygui_doc.txt.
 
 """
 
-EasyGuiRevisionInfo = "version 0.4, revision 1, 2021-06-04"
+EasyGuiRevisionInfo = "version 0.4, revision 1, 2021-06-05"
 """===============================================================
-tkinter → tkinter
-tkMessageBox → tkinter.messagebox
-tkColorChooser → tkinter.colorchooser
-tkFileDialog → tkinter.filedialog
-tkCommonDialog → tkinter.commondialog
-tkSimpleDialog → tkinter.simpledialog
-tkFont → tkinter.font
-Tkdnd → tkinter.dnd
-ScrolledText → tkinter.scrolledtext
-Tix → tkinter.tix
-ttk → tkinter.ttk
+These are the mappings from older Tkinter to Python 3 Tkinter
+    Tkinter → tkinter
+    tkMessageBox → tkinter.messagebox
+    tkColorChooser → tkinter.colorchooser
+    tkFileDialog → tkinter.filedialog
+    tkCommonDialog → tkinter.commondialog
+    tkSimpleDialog → tkinter.simpledialog
+    tkFont → tkinter.font
+    Tkdnd → tkinter.dnd
+    ScrolledText → tkinter.scrolledtext
+    Tix → tkinter.tix
+    ttk → tkinter.ttk
 
 REVISION HISTORY
 24 2002-10-06 improved control over font family and font size
@@ -77,16 +78,6 @@ REVISION HISTORY
 import sys
 from importlib import reload
 from tkinter import *
-if TkVersion < 8.0 :
-    print ("\n" * 3)
-    print ("*"*75)
-    print ("Running Tk version:", TkVersion )
-    print ("You must be using Tk version 8.0 or greater to use EasyGui.")
-    print ("Terminating.")
-    print ("*"*75)
-    print ("\n" * 3)
-    sys.exit(0)
-    
 
 rootWindowPosition = "+300+200"
 import string
@@ -620,15 +611,14 @@ def textbox(message="", title="", text="", codebox=0):
     else:
         character_width = int((root_width * 0.6) / SMALL_FONT_SIZE)
         textbox = Text(
-            textboxFrame
-            , height=25
-            ,width=character_width
-            , padx="2m"
-            , pady="1m"
-            )
+            textboxFrame,
+            height=25,
+            width=character_width,
+            padx="2m",
+            pady="1m")
         textbox.configure(wrap=WORD)
         textbox.configure(font=(DEFAULT_FONT_FAMILY,TEXTBOX_FONT_SIZE))
- 
+
 
     # add a vertical scrollbar to the frame
     rightScrollbar = Scrollbar(textboxFrame, orient=VERTICAL, command=textbox.yview)
@@ -784,26 +774,26 @@ def __put_buttons_in_buttonframe(choices):
 
 def run_thinking():
 
-    choices = """tt000.py - introduction 
-tt010.py - simplest possible tkinter program: 3 statements 
-tt020.py - creating a GUI object; packing; containers vs. widgets 
-tt030.py - creating a widget and putting it in a frame 
-tt035.py - using a class structure in the program 
-tt040.py - some other ways to define a widget 
-tt050.py - packing 
-tt060.py - event binding 
-tt070.py - "focus" and binding a widget to keyboard events 
-tt074.py - command binding 
-tt075.py - using event binding and command binding together 
-tt076.py - sharing information among event handlers 
-tt077.py - passing arguments to event handlers (part 1) - the problem 
-tt078.py - passing arguments to event handlers (part 2) - solving it with lambda 
-tt079.py - passing arguments to event handlers (part 3) - solving it with currying 
-tt080.py - widget options and pack settings 
-tt090.py - nesting frames 
-tt095.py - Window Manager methods & controlling the size of windows with the geometry option 
+    choices = """tt000.py - introduction
+tt010.py - simplest possible tkinter program: 3 statements
+tt020.py - creating a GUI object; packing; containers vs. widgets
+tt030.py - creating a widget and putting it in a frame
+tt035.py - using a class structure in the program
+tt040.py - some other ways to define a widget
+tt050.py - packing
+tt060.py - event binding
+tt070.py - "focus" and binding a widget to keyboard events
+tt074.py - command binding
+tt075.py - using event binding and command binding together
+tt076.py - sharing information among event handlers
+tt077.py - passing arguments to event handlers (part 1) - the problem
+tt078.py - passing arguments to event handlers (part 2) - solving it with lambda
+tt079.py - passing arguments to event handlers (part 3) - solving it with currying
+tt080.py - widget options and pack settings
+tt090.py - nesting frames
+tt095.py - Window Manager methods & controlling the size of windows with the geometry option
 tt100.py - pack options: side, expand, fill, anchor """.split("\n")
-    
+
 
     title = "Thinking in tkinter"
     msg = "Pick the 'Thinking in tkinter' program that you wish to view and run."
@@ -813,11 +803,11 @@ tt100.py - pack options: side, expand, fill, anchor """.split("\n")
 
     while (1): # do forever
         choice = choicebox(msg, title, choices)
-        if choice == None: 
+        if choice == None:
             msg = "Thank you for looking at 'Thinking in tkinter'."
             msgbox(msg, title)
             break
-        
+
         program_filename = choice.split()[0]
         program_name = program_filename.split(".")[0]
         with open(program_filename, "r") as f:
