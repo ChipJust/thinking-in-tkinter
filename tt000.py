@@ -58,34 +58,34 @@ or presses of a key on the keyboard.  These routines are called "handlers"
 because they "handle" (that is, respond to) such events.
 
 3) Associating an event handler with a widget is called "binding".  Roughly, the
-process of binding involves associating three different things: 
+process of binding involves associating three different things:
 
-    (a) a type of event (e.g. a click of the left mouse button, 
-        or a press of the ENTER key on the keyboard), 
-    (b) a widget (e.g. a button), and 
-    (c) an event-handler routine.  
+    (a) a type of event (e.g. a click of the left mouse button,
+        or a press of the ENTER key on the keyboard),
+    (b) a widget (e.g. a button), and
+    (c) an event-handler routine.
 
-For example, we might bind (a) a single-click of the left mouse button on (b) 
-the "CLOSE" button/widget on the screen to (c) the "closeProgram" routine, which 
+For example, we might bind (a) a single-click of the left mouse button on (b)
+the "CLOSE" button/widget on the screen to (c) the "closeProgram" routine, which
 closes the window and shuts down the program.
 
 4) The code that sits and waits for input is called the "event loop".
 
 ABOUT THE EVENT LOOP
 
-If you believe the movies, every small town has a little old lady who spends all 
-of her time at her front window, just WATCHING.  She sees everything that goes 
-on in the neighborhood.  A lot of what she sees is uninteresting of course -- 
-just people going to and fro in the street.  But some of it is interesting -- 
-like a big fight between the newly-wed couple in the house across the street. 
+If you believe the movies, every small town has a little old lady who spends all
+of her time at her front window, just WATCHING.  She sees everything that goes
+on in the neighborhood.  A lot of what she sees is uninteresting of course --
+just people going to and fro in the street.  But some of it is interesting --
+like a big fight between the newly-wed couple in the house across the street.
 When interesting events happen, the watchdog lady immediately is on the phone with
 the news to the police or to her neighbors.
 
-The event loop is a lot like this watchdog lady.  The event loop spends all of 
-its time watching events go by, and it sees all of them.  Most of the events are 
-uninteresting, and when it sees them, it does nothing.  But when it sees 
-something interesting -- an event that it knows is interesting, because an event 
-handler has been bound to the event -- then it immediately calls up the event 
+The event loop is a lot like this watchdog lady.  The event loop spends all of
+its time watching events go by, and it sees all of them.  Most of the events are
+uninteresting, and when it sees them, it does nothing.  But when it sees
+something interesting -- an event that it knows is interesting, because an event
+handler has been bound to the event -- then it immediately calls up the event
 handler and lets it know that the event has happened.
 
 
@@ -106,7 +106,7 @@ def handle_A():
 
 def handle_B():
     print ("Absolutely right!  Trillium is a kind of flower!")
-     
+
 def handle_C():
     print ("Wrong! Try again!")
 
@@ -139,7 +139,7 @@ while (1):
     if answer == "A": handle_A()
     if answer == "B": handle_B()
     if answer == "C": handle_C()
-    if answer == "X": 
+    if answer == "X":
         # clear the screen and exit the event loop
         print ("\n"*100)
         break
