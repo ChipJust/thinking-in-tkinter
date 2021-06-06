@@ -141,18 +141,14 @@ class MyApp:
         button_name = "OK"
 
         # command binding
-        self.button1 = Button(self.myContainer1,
-            command = lambda
-            arg1=button_name, arg2=1, arg3="Good stuff!" :
-            self.buttonHandler(arg1, arg2, arg3)
-            )
+        self.button1 = Button(
+            self.myContainer1,
+            command = lambda arg1=button_name, arg2=1, arg3="Good stuff!" : self.buttonHandler(arg1, arg2, arg3))
 
         # event binding -- passing the event as an argument
-        self.button1.bind("<Return>",
-            lambda
-            event, arg1=button_name, arg2=1, arg3="Good stuff!" :
-            self.buttonHandler_a(event, arg1, arg2, arg3)
-            )
+        self.button1.bind(
+            "<Return>",
+            lambda event, arg1=button_name, arg2=1, arg3="Good stuff!" : self.buttonHandler_a(event, arg1, arg2, arg3))
 
         self.button1.configure(text=button_name, background="green")
         self.button1.pack(side=LEFT)
@@ -162,29 +158,26 @@ class MyApp:
         button_name = "Cancel"
 
         # command binding
-        self.button2 = Button(self.myContainer1,
-            command = lambda
-            arg1=button_name, arg2=2, arg3="Bad  stuff!":
-            self.buttonHandler(arg1, arg2, arg3)
-            )
+        self.button2 = Button(
+            self.myContainer1,
+            command = lambda arg1=button_name, arg2=2, arg3="Bad  stuff!": self.buttonHandler(arg1, arg2, arg3))
 
         # event binding -- without passing the event as an argument
-        self.button2.bind("<Return>",
-            lambda
-            event, arg1=button_name, arg2=2, arg3="Bad  stuff!" :
-            self.buttonHandler(arg1, arg2, arg3)
-            )
+        self.button2.bind(
+            "<Return>",
+            lambda event, arg1=button_name, arg2=2, arg3="Bad  stuff!" : self.buttonHandler(arg1, arg2, arg3))
 
         self.button2.configure(text=button_name, background="red")
         self.button2.pack(side=LEFT)
 
 
     def buttonHandler(self, argument1, argument2, argument3):
-        print ("    buttonHandler routine received arguments:" \
-            , argument1.ljust(8), argument2, argument3)
+        print ("buttonHandler(argument1={}, argument2={}, argument3={})".format(argument1, argument2, argument3))
+        if argument1 == 'Cancel':
+            self.myParent.destroy()
 
-     def buttonHandler_a(self, event, argument1, argument2, argument3):
-        print ("buttonHandler_a received event", event)
+    def buttonHandler_a(self, event, argument1, argument2, argument3):
+        print ("buttonHandler_a(event={}, argument1={}, argument2={}, argument3={})".format(event, argument1, argument2, argument3))
         self.buttonHandler(argument1, argument2, argument3)
 
 

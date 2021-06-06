@@ -84,10 +84,10 @@ import string
 
 DEFAULT_FONT_FAMILY   = ("MS", "Sans", "Serif")
 MONOSPACE_FONT_FAMILY = ("Courier")
-DEFAULT_FONT_SIZE     = 10
-BIG_FONT_SIZE         = 12
-SMALL_FONT_SIZE       =  9
-CODEBOX_FONT_SIZE     =  9
+DEFAULT_FONT_SIZE     = 12
+BIG_FONT_SIZE         = 14
+SMALL_FONT_SIZE       = 10
+CODEBOX_FONT_SIZE     = 12
 TEXTBOX_FONT_SIZE     = DEFAULT_FONT_SIZE
 
 import tkinter.filedialog
@@ -190,7 +190,6 @@ def buttonbox(message="Shall I continue?", title="", choices = ["Button1", "Butt
     root.title(title)
     root.iconname('Dialog')
     root.geometry(rootWindowPosition)
-    root.minsize(400, 100)
 
     # ------------- define the frames --------------------------------------------
     messageFrame = Frame(root)
@@ -359,7 +358,6 @@ def choicebox(message="Pick something.", title="", choices=["program logic error
     rootWindowPosition = "+0+0"
     root.geometry(rootWindowPosition)
     root.expand=NO
-    root.minsize(root_width, root_height)
     rootWindowPosition = "+" + str(root_xpos) + "+" + str(root_ypos)
     root.geometry(rootWindowPosition)
 
@@ -577,7 +575,6 @@ def textbox(message="", title="", text="", codebox=0):
     rootWindowPosition = "+0+0"
     root.geometry(rootWindowPosition)
     root.expand=NO
-    root.minsize(root_width, root_height)
     rootWindowPosition = "+" + str(root_xpos) + "+" + str(root_ypos)
     root.geometry(rootWindowPosition)
 

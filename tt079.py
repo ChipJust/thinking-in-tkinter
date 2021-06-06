@@ -152,10 +152,10 @@ coded.
 >"""
 from tkinter import *
 
-# ---------- code for class: curry (begin) ---------------------
-class curry:
+# ---------- code for class: Curry (begin) ---------------------
+class Curry:
     """from Scott David Daniels'recipe
-    "curry -- associating parameters with a function"
+    "Curry -- associating parameters with a function"
     in the "Python Cookbook"
     http://aspn.activestate.com/ASPN/Python/Cookbook/
     """
@@ -172,7 +172,7 @@ class curry:
         else:
             kw = kwargs or self.kwargs
         return self.fun(*(self.pending + args), **kw)
-# ---------- code for class: curry (end) ---------------------
+# ---------- code for class: Curry (end) ---------------------
 
 
 # ---------- code for function: event_lambda (begin) --------
@@ -191,13 +191,15 @@ class MyApp:
 
         button_name = "OK"
 
-        # command binding -- using curry
-        self.button1 = Button(self.myContainer1,
-           command = curry(self.buttonHandler, button_name, 1, "Good stuff!"))
+        # command binding -- using Curry
+        self.button1 = Button(
+            self.myContainer1,
+            command = Curry(self.buttonHandler, button_name, 1, "Good stuff!"))
 
         # event binding -- using the event_lambda helper function
-        self.button1.bind("<Return>",
-            event_lambda( self.buttonHandler, button_name, 1, "Good stuff!" ) )
+        self.button1.bind(
+            "<Return>",
+            event_lambda(self.buttonHandler, button_name, 1, "Good stuff!" ))
 
         self.button1.configure(text=button_name, background="green")
         self.button1.pack(side=LEFT)
@@ -206,24 +208,25 @@ class MyApp:
 
         button_name = "Cancel"
 
-        # command binding -- using curry
-        self.button2 = Button(self.myContainer1,
-            command = curry(self.buttonHandler, button_name, 2, "Bad  stuff!"))
+        # command binding -- using Curry
+        self.button2 = Button(
+            self.myContainer1,
+            command = Curry(self.buttonHandler, button_name, 2, "Bad  stuff!"))
 
         # event binding -- using the event_lambda helper function in two steps
-        event_handler = event_lambda( self.buttonHandler, button_name, 2, "Bad  stuff!" )
+        event_handler = event_lambda(self.buttonHandler, button_name, 2, "Bad  stuff!")
         self.button2.bind("<Return>", event_handler )
 
         self.button2.configure(text=button_name, background="red")
         self.button2.pack(side=LEFT)
 
-
     def buttonHandler(self, argument1, argument2, argument3):
-        print ("    buttonHandler routine received arguments:", \
-            argument1.ljust(8), argument2, argument3)
+        print ("buttonHandler(argument1={}, argument2={}, argument3={})".format(argument1, argument2, argument3))
+        if argument1 == 'Cancel':
+            self.myParent.destroy()
 
     def buttonHandler_a(self, event, argument1, argument2, argument3):
-        print ("buttonHandler_a received event", event)
+        print ("buttonHandler_a(event={}, argument1={}, argument2={}, argument3={})".format(event, argument1, argument2, argument3))
         self.buttonHandler(argument1, argument2, argument3)
 
 print ("\n"*100) # clear the screen

@@ -102,12 +102,12 @@ class MyApp:
         self.button2.pack(side=LEFT)
 
 
-    def buttonHandler(self, arg1, arg2, arg3):
-        print ("    buttonHandler routine received arguments:", arg1.ljust(8), arg2, arg3)
+    def buttonHandler(self, argument1, argument2, argument3):
+        print ("buttonHandler(argument1={}, argument2={}, argument3={})".format(argument1, argument2, argument3))
 
-     def buttonHandler_a(self, event, arg1, arg2, arg3):
-        print ("buttonHandler_a received event", event)
-        self.buttonHandler(arg1, arg2, arg3)
+    def buttonHandler_a(self, event, argument1, argument2, argument3):
+        print ("buttonHandler_a(event={}, argument1={}, argument2={}, argument3={})".format(event, argument1, argument2, argument3))
+        self.buttonHandler(argument1, argument2, argument3)
 
 print ("\n"*100) # clear the screen
 print ("Starting program tt077.")
