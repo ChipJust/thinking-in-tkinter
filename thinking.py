@@ -36,6 +36,13 @@ These are the mappings from older Tkinter to Python 3 Tkinter
     Tix → tkinter.tix
     ttk → tkinter.ttk
 
+NEWREL
+    Reorganize the main code more like
+        https://stackoverflow.com/questions/38326068/tkinter-unsure-of-my-error-possibly-due-to-destroy
+        https://stackoverflow.com/questions/7546050/switch-between-two-frames-in-tkinter
+    Looks like pack is outdated. Go figure. Read this
+        https://tkdocs.com/tutorial/intro.html
+
 REVISION HISTORY
 24 2002-10-06 improved control over font family and font size
     Added note that EasyGui requires Tk release 8.0 or greater.
